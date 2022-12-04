@@ -29,7 +29,7 @@ class Score(models.Model):
     user = models.ForeignKey(User, related_name="scores", on_delete=models.CASCADE)
     date = models.DateField(
         default=timezone.now,
-    )  # Can also be a someting that the super admin fills in. Not specified which way.
+    )  # Can also be a someting that the admin fills in and possibly readonly. Not specified which way.
     score = models.FloatField(
         validators=[MinValueValidator(1.0), MaxValueValidator(10.0)],
     )
