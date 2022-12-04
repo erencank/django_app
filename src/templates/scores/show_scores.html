@@ -1,0 +1,21 @@
+{% if user_list %}
+<ul>
+    {% for user,scores in user_list.items %}
+    <li> {{user}}</li>
+        <ul>
+            <li> Total: {{scores.total}}</li>
+            {% for score in scores.scores %}
+                {% if score < 6%}
+                    <span style="color: red">
+                    <li> {{score}}</li>
+                    </span>
+                {% else %}
+                    <li> {{score}}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No scores are available.</p>
+{% endif %}
