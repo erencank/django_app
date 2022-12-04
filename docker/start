@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+PROJECT_DIR=/app/src
+BIND_ADDR="0.0.0.0:8000"
+
+python $PROJECT_DIR/manage.py migrate
+exec python $PROJECT_DIR/manage.py runserver "$BIND_ADDR"
